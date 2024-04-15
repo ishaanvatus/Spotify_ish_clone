@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Invalid credentials, redirect back to login page with error message
-            header("Location: login.php?error=Invalid credentials");
+            header("Location: ../pages/login.html?error=Invalid credentials");
             exit();
         }
     } catch (PDOException $e) {

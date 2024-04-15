@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Include the database connection setup
-include_once "includes/dbh.inc.php";
+include_once "../includes/dbh.inc.php";
 
 // Retrieve user data
 $user_id = $_SESSION['user_id'];
@@ -31,12 +31,12 @@ $user_name = $_SESSION['user_name'];
             <h1>Welcome to Spotify Clone</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Recommendations</a></li>
-                    <li><a href="#">Upgrade to Premium</a></li>
-                    <li><a href="#">Make Playlist</a></li>
-                    <li><a href="#">Listen</a></li>
-                    <li><a href="#">Rate</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="../includes/genre.php">By Genre</a></li>
+                    <li><a href="../pages/premium.html">Upgrade to Premium</a></li>
+                    <li><a href="../includes/make_playlist.php">Make Playlist</a></li>
+                    <li><a href="../includes/listen.php">Add Music</a></li>
+                    <li><a href="../includes/rate.php">Rate</a></li>
+                    <li><a href="../includes/profile.php">Profile</a></li>
                     <li><a href="logout.php">Logout</a></li>
                 </ul>
             </nav>
