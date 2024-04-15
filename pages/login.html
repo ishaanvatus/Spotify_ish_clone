@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Spotify Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-black text-white p-4">
     <div class="container">
-        <h2>Login</h2>
+        <h2 class="text-green-500 font-bold text-3xl py-4">Login</h2>
         <form id="login-form" action="../includes/login.php" method="post">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+            <div class="form-group py-2">
+                <label class="font-bold rounded-xl px-2" for="email">Email:</label>
+                <input class="bg-slate-900 border-2 border-white" type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group py-2">
+                <label class="font-bold rounded-xl px-2" for="password">Password:</label>
+                <input class="bg-slate-900 border-2 border-white" type="password" id="password" name="password" required>
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <button class="border-2 rounded-3xl p-2 font-bold border-green-500 " type="submit">Login</button>
             </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
-            <div class="form-group">
-                <span class="link">Don't have an account yet? <a href="signup.html">Sign Up</a></span>
+            <div class="form-group py-2">
+                <span class="link">Don't have an account yet? <a class="text-blue-400" href="signup.html">Sign Up</a></span>
             </div>
         </form>
     </div>
