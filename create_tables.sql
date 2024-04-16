@@ -7,16 +7,16 @@ CREATE TABLE users (
 );
 create table artists(
   artist_id int primary key, 
-  artist_name varchar(30), 
-  artist_alias varchar(20), 
-  country varchar(20), 
-  continent varchar(15), 
-  genre varchar(15), 
+  artist_name varchar(32), 
+  artist_alias varchar(32), 
+  country varchar(16), 
+  continent varchar(16), 
+  genre varchar(16), 
   birth_date date
 );
 create table tracks (
-  track_id int primary key, 
-  track_name varchar(20), 
+  track_id int primary key auto_increment, 
+  track_name varchar(32), 
   `duration(mins)` int, 
   release_date date
 );
@@ -34,20 +34,20 @@ create table albums (
 );
 create table labels(
   label_id int primary key, 
-  label_name varchar(20), 
-  country varchar(15), 
-  continent varchar(15)
+  label_name varchar(32), 
+  country varchar(16), 
+  continent varchar(16)
 );
 create table events (
   event_id int primary key, 
-  event_name varchar(20), 
-  location varchar(50), 
+  event_name varchar(32), 
+  location varchar(64), 
   event_date date, 
-  description varchar (50)
+  description varchar (64)
 );
 create table playlists(
-  playlist_id int primary key, 
-  playlist_name varchar(15)
+  playlist_id int primary key AUTO_INCREMENT, 
+  playlist_name varchar(16)
 );
 create table user_playlists(
   playlist_id int, 

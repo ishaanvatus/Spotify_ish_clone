@@ -18,11 +18,23 @@ insert into tracks values (306, "One Step Closer", 158,  "2000-10-24");
 insert into tracks values (307, "Given Up", 189, "2007-05-14");
 insert into tracks values (308, "Somehwere I belong", 206,"2007-05-14");
 
+insert into artist_tracks values (101, 301);
+insert into artist_tracks values (101, 302);
+insert into artist_tracks values (101, 303);
+insert into artist_tracks values (101, 304);
+insert into artist_tracks values (101, 305);
+insert into artist_tracks values (101, 306);
+insert into artist_tracks values (101, 307);
+insert into artist_tracks values (101, 308);
+
 insert into labels values(1001, "Columbia Records", "United States", "North America");
 insert into labels values(1002, "Sony Music Entertainment", "Japan", "Asia");
 insert into labels values(1003, "Warner Music Group", "United States", "North America");
 insert into labels values(1004, "Shady Records", "United States", "North America");
 insert into labels values(1005, "Machine Shop Records", "United States", "North America");
 
-
-
+insert into labels_artists values(1003, 101);
+insert into labels_artists values(1005, 101);
+insert into labels_artists values(1001, 102);
+insert into labels_artists values(1002, 102);
+insert into labels_artists values(1004, 103);

@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Include the database connection setup
     include_once "../includes/dbh.inc.php";
 
-    // Retrieve email and password from the login form
+    // Retrieve eweite tmail and password from the login form
     $email = $_POST["email"];
     $password = $_POST["password"];
 

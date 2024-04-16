@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Spotify Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white p-4">
+    <header>
+        <div class="container">
+            <h1 class="text-center font-bold text-5xl text-green-500 p-6">Welcome to Spotify Clone</h1>
+        </div>
+    </header>
+
+    <main class="text-3xl py-4">
+        <div class="container">
+            <h2>User Profile</h2>
+            <form action="../includes/profile.php" method="post" class="mt-4">
+                <!-- Profile update form fields -->
+                <label for="username" class="block">Username:</label>
+                <input type="text" id="username" name="username" class="bg-slate-900 border-2 border-white rounded-md p-2 mb-4" required>
+
+                <label for="email" class="block">Email:</label>
+                <input type="email" id="email" name="email" class="bg-slate-900 border-2 border-white rounded-md p-2 mb-4" required>
+
+                <input type="submit" value="Update Profile" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Spotify Clone - All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

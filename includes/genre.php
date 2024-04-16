@@ -1,26 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sort Songs by Genre</title>
-</head>
-<body>
-    <h1>Songs Sorted by Genre</h1>
-    <?php
-    // Include the database connection setup
-    include_once "../includes/dbh.inc.php";
+<?php
+session_start();
 
-    // Query to select songs sorted by genre
-    $sql = "SELECT * FROM tracks INNER JOIN artists ON tracks.artist_id = artists.artist_id ORDER BY artists.genre, tracks.track_name";
-    $result = $pdo->query($sql);
+// Include the database connection setup
+include_once "dbh.inc.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-    // Display songs sorted by genre
-    echo "<ul>";
-    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-        echo "<li>{$row['track_name']} by {$row['artist_name']} (Genre: {$row['genre']})</li>";
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: ../pages/login.html");
+    exit();
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve genre from the form
+    $genre = $_POST["genre"];
+
+    try {
+        // Prepare the SQL statement to select tracks by genre
+        $stmt = $pdo->prepare("SELECT t.* FROM tracks t INNER JOIN artist_tracks at ON t.track_id = at.track_id INNER JOIN artists a ON at.artist_id = a.artist_id WHERE a.genre = :genre");
+        $stmt->bindParam(':genre', $genre);
+        $stmt->execute();
+
+        // Fetch tracks data
+        $tracks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Display tracks by genre
+        foreach ($tracks as $track) {
+            echo "Track ID: " . $track['track_id'] . "<br>";
+            echo "Track Name: " . $track['track_name'] . "<br>";
+            echo "Duration (mins): " . $track['duration(mins)'] . "<br>";
+            echo "Release Date: " . $track['release_date'] . "<br><br>";
+        }
+    } catch (PDOException $e) {
+        // Handle database errors
+        echo "Error: " . $e->getMessage();
     }
-    echo "</ul>";
-    ?>
-</body>
-</html>
+}
+?>

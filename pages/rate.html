@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Songs - Spotify Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white p-4">
+    <header>
+        <div class="container">
+            <h1 class="text-center font-bold text-5xl text-green-500 p-6">Welcome to Spotify Clone</h1>
+        </div>
+    </header>
+
+    <main class="text-3xl py-4">
+        <div class="container">
+            <h2>Rate Songs</h2>
+            <form action="../includes/rate.php" method="post" class="mt-4">
+                <!-- Input track name -->
+                <label for="track_name" class="block">Track Name:</label>
+                <input type="text" id="track_name" name="track_name" class="bg-slate-900 border-2 border-white rounded-md p-2 mb-4" required>
+
+                <!-- Rating selection -->
+                <label for="rating" class="block">Rating:</label>
+                <select id="rating" name="rating" class="bg-slate-900 border-2 border-white rounded-md p-2 mb-4" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                <input type="submit" value="Submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Spotify Clone - All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

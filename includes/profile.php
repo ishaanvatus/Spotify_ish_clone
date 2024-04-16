@@ -1,30 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-</head>
-<body>
-    <h1>User Profile</h1>
-    <?php
-    // Include the database connection setup
-    include_once "../includes/dbh.inc.php";
+<?php
+session_start();
 
-    // Retrieve user data
-    $user_id = $_SESSION['user_id'];
-    $user_name = $_SESSION['user_name'];
+// Include the database connection setup
+include_once "dbh.inc.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-    // Query to fetch user's basic information
-    $sql = "SELECT * FROM users WHERE user_id = $user_id";
-    $result = $pdo->query($sql);
-    $row = $result->fetch(PDO::FETCH_ASSOC);
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: ../pages/login.html");
+    exit();
+}
 
-    // Display user's basic information
-    echo "<p>User ID: {$row['user_id']}</p>";
-    echo "<p>User Name: {$row['user_name']}</p>";
-    echo "<p>Email: {$row['email']}</p>";
-    echo "<p>Gender: {$row['gender']}</p>";
-    ?>
-</body>
-</html>
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve profile details from the form
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $user_id = $_SESSION['user_id']; // Get user ID from session
+
+    try {
+        // Prepare the SQL statement to update user profile
+        $stmt = $pdo->prepare("UPDATE users SET user_name = :username, email = :email WHERE user_id = :user_id");
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+
+        // Redirect to profile page after updating profile
+        header("Location: ../pages/profile.html");
+        exit();
+    } catch (PDOException $e) {
+        // Handle database errors
+        echo "Error: " . $e->getMessage();
+    }
+}
+?>

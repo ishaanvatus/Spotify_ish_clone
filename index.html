@@ -3,45 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Spotify Clone</title>
 </head>
-<body>
-  <header>
-    <h1>Welcome to Spotify Clone</h1>
-    <p>Your Personalized Music Destination</p>
+<body class="bg-black text-white text-xl p-4">
+  <header class="flex justify-center">
+    <div class="flex-col">
+      <h1 class="text-center font-bold text-5xl text-green-500 p-6">Welcome to Spotify Clone</h1>
+      <h1 class="text-center font-bold text-2xl">Your Personalized Music Destination</h1>
+    </div>
   </header>
-    <a href="pages/login.html">Login</a>
-    <a href="pages/signup.html">Signup</a>
+    <a class="text-bold text-blue-400" href="pages/login.html">Login</a>
+    <a class="text-bold text-blue-400" href="pages/signup.html">Signup</a>
 
   <main>
     <section>
-      <h2>Ratings</h2>
+      <h2 class="font-bold text-green-500 py-4 text-2xl">Ratings</h2>
       <p>Rate and review your favorite tracks and albums on Spotify Clone. Share your feedback with the community and help others discover new music gems.</p>
     </section>
 
     <section>
-      <h2>Listen to Songs</h2>
+      <h2 class="font-bold text-green-500 py-4 text-2xl">Listen to Songs</h2>
       <p>Dive into Spotify Clone's vast catalog of songs spanning various genres, artists, and moods. Enjoy high-quality streaming and immerse yourself in a world of music.</p>
     </section>
 
     <section>
-      <h2>Create Playlist</h2>
+      <h2 class="font-bold text-green-500 py-4 text-2xl">Create Playlist</h2>
       <p>Craft your own playlists effortlessly on Spotify Clone. Mix and match tracks to curate the perfect soundtrack for any occasion, whether it's a workout session or a relaxing evening at home.</p>
     </section>
 
     <section>
-      <h2>Subscribe to Premium</h2>
+      <h2 class="font-bold text-green-500 py-4 text-2xl">Subscribe to Premium</h2>
       <p>Upgrade to Spotify Clone Premium for an enhanced music experience. Enjoy ad-free listening, offline downloads, and access to exclusive content and features.</p>
     </section>
 
     <section>
-      <h2>Personalized Recommendations</h2>
+      <h2 class="font-bold text-green-500 py-4 text-2xl">Personalized Recommendations</h2>
       <p>Let Spotify Clone's advanced recommendation system guide your music exploration. Receive tailor-made suggestions for tracks, albums, and playlists based on your listening history and preferences.</p>
     </section>
   </main>
-
-  <footer>
-    <p>Join Spotify Clone now and take your music experience to the next level!</p>
-  </footer>
+<footer class="pt-6">
+  <div class="rounded-xl p-2 bg-slate-800">
+    <p class="text-center">Join Spotify Clone now and take your music experience to the next level!</p>
+</div>
+</footer>
 </body>
 </html>
+<?php
+?>
